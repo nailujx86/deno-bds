@@ -1,0 +1,26 @@
+name: Deno BDS CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Repository
+        uses: actions/checkout@v3
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.26.x
+      - name: Check formatting
+        run: deno fmt --check
+      - name: Lint
+        run: deno lint
+      - name: Test
+        run: deno test --allow-all
+        
+      
