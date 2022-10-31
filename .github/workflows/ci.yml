@@ -1,4 +1,4 @@
-name: Deno BDS CI
+name: Deno BDS CI Pipeline
 
 on:
   push:
@@ -23,4 +23,3 @@ jobs:
       - name: Test
         run: deno test --allow-all
         
-      
